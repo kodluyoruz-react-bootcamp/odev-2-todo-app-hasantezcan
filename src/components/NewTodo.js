@@ -14,7 +14,7 @@ function NewTodo({ todos, setTodos }) {
 	function handleTodos(event) {
 		if (event.charCode === 13) {
 			event.preventDefault();
-			setTodos([{ content: newTodo }, ...todos]);
+			setTodos([{ content: newTodo, isDone: false }, ...todos]);
 		}
 	}
 

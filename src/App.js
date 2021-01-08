@@ -3,11 +3,12 @@ import { useState } from "react";
 import "./App.css";
 
 import NewTodo from "./components/NewTodo";
+import TodoList from "./components/TodoList";
 
 function App() {
 	const [todos, setTodos] = useState([
-		{ content: "abbas" },
-		{ content: "abbas2" },
+		{ content: "abbas", isDone: false },
+		{ content: "abbas2", isDone: false },
 	]);
 
 	return (
@@ -17,9 +18,7 @@ function App() {
 				<NewTodo todos={todos} setTodos={setTodos}></NewTodo>
 			</header>
 
-			{todos.map((todo, i) => (
-				<li key={i}>{todo.content}</li>
-			))}
+			<TodoList todos={todos} setTodos={setTodos}></TodoList>
 
 			<footer class="info">
 				<p>Click to edit a todo</p>
