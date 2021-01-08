@@ -1,6 +1,12 @@
-import React from "react";
+import { useState, useEffect } from "react";
 
 function TodoListItem({ todos, todoItem, setTodos, id }) {
+	const [newTodo, setNewTodo] = useState(todoItem.content);
+
+	useEffect(() => {
+		setNewTodo(todoItem.content);
+	}, [todoItem]);
+
 	function toggleHandleCheckbox() {
 		setTodos(
 			todos.map((todo, i) =>
@@ -12,7 +18,23 @@ function TodoListItem({ todos, todoItem, setTodos, id }) {
 	function deleteTodo() {
 		setTodos(todos.filter((todo, i) => i !== id));
 	}
-	
+
+	// -----
+
+	function handleNewTodo(event) {
+		setNewTodo(event.target.value);
+	}
+
+	function handleTodos(event) {
+		if (event.charCode === 13) {
+			event.preventDefault();
+
+			setTodos(
+				todos.map((todo, i) => (i === id ? { ...todo, content: newTodo } : todo))
+			);
+		}
+	}
+
 	return (
 		<>
 			<input
@@ -22,10 +44,13 @@ function TodoListItem({ todos, todoItem, setTodos, id }) {
 				type="checkbox"
 			/>
 			<label property="text">{todoItem.content}</label>
-			<button
-				onClick={deleteTodo}
-				class="destroy"
-			></button>
+			<input
+				onChange={handleNewTodo}
+				onKeyPress={handleTodos}
+				value={newTodo}
+				type="text"
+			/>
+			<button onClick={deleteTodo} class="destroy"></button>
 		</>
 	);
 }
