@@ -5,7 +5,6 @@ function NewTodo({ todos, setTodos }) {
 
 	useEffect(() => {
 		setNewTodo("");
-		console.log("selammm")
 	}, [todos]);
 
 	function handleNewTodo(event) {
@@ -15,7 +14,7 @@ function NewTodo({ todos, setTodos }) {
 	function handleTodos(event) {
 		if (event.charCode === 13) {
 			event.preventDefault();
-			setTodos([newTodo, ...todos]);
+			setTodos([{ content: newTodo }, ...todos]);
 		}
 	}
 
