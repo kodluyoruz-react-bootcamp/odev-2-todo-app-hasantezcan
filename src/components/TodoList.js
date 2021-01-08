@@ -10,7 +10,12 @@ function TodoList({ todos, setTodos }) {
 				{todos.map((todo, i) => (
 					<li key={i} className={cn(todo.isDone && "completed")}>
 						<div class="view">
-							<TodoListItem todoItem={todo} />
+							<TodoListItem
+								todos={todos}
+								todoItem={todo}
+								setTodos={setTodos}
+								id={i}
+							/>
 						</div>
 					</li>
 				))}

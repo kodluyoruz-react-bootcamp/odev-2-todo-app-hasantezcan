@@ -7,8 +7,9 @@ import TodoList from "./components/TodoList";
 
 function App() {
 	const [todos, setTodos] = useState([
-		{ content: "abbas", isDone: true },
-		{ content: "abbas2", isDone: false },
+		{ content: "camasirlari as", isDone: false },
+		{ content: "yemek yap", isDone: true },
+		{ content: "kahve yap", isDone: true },
 	]);
 
 	return (
