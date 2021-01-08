@@ -7,7 +7,7 @@ function TodoList({ todos, setTodos, filter }) {
 		<>
 			<ul class="todo-list">
 				{todos.map((todo, i) =>
-					todo.isDone === filter ? (
+					0 === filter ? (
 						<li key={i} className={cn(todo.isDone && "completed")}>
 							<div class="view">
 								<TodoListItem
@@ -18,7 +18,29 @@ function TodoList({ todos, setTodos, filter }) {
 								/>
 							</div>
 						</li>
-					) : null
+					) : 1 === filter && todo.isDone === false ? (
+						<li key={i} className={cn(todo.isDone && "completed")}>
+							<div class="view">
+								<TodoListItem
+									todos={todos}
+									todoItem={todo}
+									setTodos={setTodos}
+									id={i}
+								/>
+							</div>
+						</li>
+					) : (
+						2 === filter && todo.isDone === true ? <li key={i} className={cn(todo.isDone && "completed")}>
+							<div class="view">
+								<TodoListItem
+									todos={todos}
+									todoItem={todo}
+									setTodos={setTodos}
+									id={i}
+								/>
+							</div>
+						</li> : null
+					)
 				)}
 			</ul>
 		</>

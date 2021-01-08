@@ -12,18 +12,7 @@ function FooterBar({ todos, filter, setFilter }) {
 	}, [todos]);
 
 	function handlefilter(type) {
-		if (type == "Active") {
-			setFilter(true);
-			console.log("activeeee");
-		} else if (type == "Completed") {
-			setFilter(false);
-			console.log("Completeddddd");
-		} else {
-            console.log("heyyyyyyyyyyyyyyyyy");
-        }
-		// } else {
-		// 	setFilter(true || false);
-		// }
+		setFilter(type);
 	}
 
 	return (
@@ -38,29 +27,41 @@ function FooterBar({ todos, filter, setFilter }) {
 
 				<meta property="activeFilter" content="all" mv-storage="none" />
 				<ul class="filters">
-					<li>
+					<li
+						onClick={() => {
+							handlefilter(0);
+						}}
+					>
 						<a
-							onClick={handlefilter("All")}
-							// className="[if(activeFilter = 'all', 'selected')]"
-							// mv-action="set(activeFilter, 'all')"
+
+						// className="[if(activeFilter = 'all', 'selected')]"
+						// mv-action="set(activeFilter, 'all')"
 						>
 							All
 						</a>
 					</li>
-					<li>
+					<li
+						onClick={() => {
+							handlefilter(1);
+						}}
+					>
 						<a
-							onClick={handlefilter("Active")}
-							// class="[if(activeFilter = 'active', 'selected')]"
-							// mv-action="set(activeFilter, 'active')"
+
+						// class="[if(activeFilter = 'active', 'selected')]"
+						// mv-action="set(activeFilter, 'active')"
 						>
 							Active
 						</a>
 					</li>
-					<li>
+					<li
+						onClick={() => {
+							handlefilter(2);
+						}}
+					>
 						<a
-							onClick={handlefilter("Completed")}
-							// class="[if(activeFilter = 'completed', 'selected')]"
-							// mv-action="set(activeFilter, 'completed')"
+
+						// class="[if(activeFilter = 'completed', 'selected')]"
+						// mv-action="set(activeFilter, 'completed')"
 						>
 							Completed
 						</a>
