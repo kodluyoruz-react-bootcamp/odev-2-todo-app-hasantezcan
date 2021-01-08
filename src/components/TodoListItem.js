@@ -2,8 +2,6 @@ import React from "react";
 
 function TodoListItem({ todos, todoItem, setTodos, id }) {
 	function toggleHandleCheckbox() {
-		let updatedTodo = { ...todoItem, isDone: !todoItem.isDone };
-		console.log("KEY", id);
 		setTodos(
 			todos.map((todo, i) =>
 				i === id ? { ...todo, isDone: !todoItem.isDone } : todo
@@ -11,6 +9,10 @@ function TodoListItem({ todos, todoItem, setTodos, id }) {
 		);
 	}
 
+	function deleteTodo() {
+		setTodos(todos.filter((todo, i) => i !== id));
+	}
+	
 	return (
 		<>
 			<input
@@ -20,7 +22,10 @@ function TodoListItem({ todos, todoItem, setTodos, id }) {
 				type="checkbox"
 			/>
 			<label property="text">{todoItem.content}</label>
-			<button class="destroy" mv-action="delete(todo)"></button>
+			<button
+				onClick={deleteTodo}
+				class="destroy"
+			></button>
 		</>
 	);
 }
