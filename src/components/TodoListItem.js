@@ -30,7 +30,9 @@ function TodoListItem({ todos, todoItem, setTodos, id }) {
 			event.preventDefault();
 
 			setTodos(
-				todos.map((todo, i) => (i === id ? { ...todo, content: newTodo } : todo))
+				todos.map((todo, i) =>
+					i === id ? { ...todo, content: newTodo } : todo
+				)
 			);
 		}
 	}

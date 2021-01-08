@@ -5,7 +5,11 @@ import "./App.css";
 import NewTodo from "./components/NewTodo";
 import TodoList from "./components/TodoList";
 
+import FooterBar from "./components/FooterBar";
+
 function App() {
+	const [filter, setFilter] = useState("All");
+
 	const [todos, setTodos] = useState([
 		{ content: "camasirlari as", isDone: false },
 		{ content: "yemek yap", isDone: true },
@@ -19,7 +23,9 @@ function App() {
 				<NewTodo todos={todos} setTodos={setTodos}></NewTodo>
 			</header>
 
-			<TodoList todos={todos} setTodos={setTodos}></TodoList>
+			<TodoList filter={filter} todos={todos} setTodos={setTodos}></TodoList>
+
+			<FooterBar filter={filter} setFilter={setFilter} todos={todos} />
 
 			<footer class="info">
 				<p>Click to edit a todo</p>
