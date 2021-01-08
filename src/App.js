@@ -4,8 +4,8 @@ import "./App.css";
 
 import NewTodo from "./components/NewTodo";
 import TodoList from "./components/TodoList";
-
 import FooterBar from "./components/FooterBar";
+import Title from "./components/Title";
 
 function App() {
 	const [filter, setFilter] = useState(0);
@@ -20,7 +20,7 @@ function App() {
 		<>
 			<div className="todoapp">
 				<header className="header">
-					<h1>todos</h1>
+					<Title />
 					<NewTodo todos={todos} setTodos={setTodos}></NewTodo>
 				</header>
 
