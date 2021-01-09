@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 function TodoListItem({ todos, todoItem, setTodos, id }) {
 	const [newTodo, setNewTodo] = useState(todoItem.content);
+	const [editButtonIsVisable, setEditButtonIsVisable] = useState(false);
 
 	useEffect(() => {
 		setNewTodo(todoItem.content);
@@ -13,6 +14,7 @@ function TodoListItem({ todos, todoItem, setTodos, id }) {
 				i === id ? { ...todo, isDone: !todoItem.isDone } : todo
 			)
 		);
+		setEditButtonIsVisable(false);
 	}
 
 	function deleteTodo() {
@@ -37,6 +39,10 @@ function TodoListItem({ todos, todoItem, setTodos, id }) {
 		}
 	}
 
+	function handleEdit() {
+		setEditButtonIsVisable(!editButtonIsVisable);
+	}
+
 	return (
 		<>
 			<input
@@ -45,13 +51,26 @@ function TodoListItem({ todos, todoItem, setTodos, id }) {
 				class="toggle"
 				type="checkbox"
 			/>
-			<label property="text">{todoItem.content}</label>
-			<input
-				onChange={handleNewTodo}
-				onKeyPress={handleTodos}
-				value={newTodo}
-				type="text"
-			/>
+			<label property="text">
+				{todoItem.content}{" "}
+				<span
+					class="edit-button"
+					onClick={() => {
+						handleEdit();
+					}}
+				>
+					(edit)
+				</span>
+			</label>
+			{editButtonIsVisable && (
+				<input
+					className="edit-input"
+					onChange={handleNewTodo}
+					onKeyPress={handleTodos}
+					value={newTodo}
+					type="text"
+				></input>
+			)}
 			<button onClick={deleteTodo} class="destroy"></button>
 		</>
 	);
