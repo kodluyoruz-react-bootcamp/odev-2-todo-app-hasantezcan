@@ -32,43 +32,24 @@ function FooterBar({ todos, filter, setFilter }) {
 							handlefilter(0);
 						}}
 					>
-						<a
-
-						// className="[if(activeFilter = 'all', 'selected')]"
-						// mv-action="set(activeFilter, 'all')"
-						>
-							All
-						</a>
+						<p>All</p>
 					</li>
 					<li
 						onClick={() => {
 							handlefilter(1);
 						}}
 					>
-						<a
-
-						// class="[if(activeFilter = 'active', 'selected')]"
-						// mv-action="set(activeFilter, 'active')"
-						>
-							Active
-						</a>
+						<p>Active</p>
 					</li>
 					<li
 						onClick={() => {
 							handlefilter(2);
 						}}
 					>
-						<a
-
-						// class="[if(activeFilter = 'completed', 'selected')]"
-						// mv-action="set(activeFilter, 'completed')"
-						>
-							Completed
-						</a>
+						<p>Completed</p>
 					</li>
 				</ul>
 				<button
-					// hidden="[todoDone = 0]"
 					class="clear-completed"
 					mv-action="delete(todo where done)"
 				>
