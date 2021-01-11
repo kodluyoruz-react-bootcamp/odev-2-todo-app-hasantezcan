@@ -32,21 +32,21 @@ function FooterBar({ todos, filter, setFilter }) {
 							handlefilter(0);
 						}}
 					>
-						<p>All</p>
+						<a href="#">All</a>
 					</li>
 					<li
 						onClick={() => {
 							handlefilter(1);
 						}}
 					>
-						<p>Active</p>
+						<a href="#">Active</a>
 					</li>
 					<li
 						onClick={() => {
 							handlefilter(2);
 						}}
 					>
-						<p>Completed</p>
+						<a href="#">Completed</a>
 					</li>
 				</ul>
 				<button
