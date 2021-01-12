@@ -32,10 +32,13 @@ function App() {
 			<footer class="info">
 				<p>Click to edit a todo</p>
 				<p>
-					Created by <a href="https://d12n.me/">Hasan Tezcan</a>
+					Created by <a href="https://hasantezcan.dev/">Hasan Tezcan</a>
 				</p>
 				<p>
-					Part of <a href="http://todomvc.com">TodoMVC</a>
+					Part of
+					<a href="https://github.com/hasantezcan/kodluyoruz-react-bootcamp">
+						Kodluyoruz React Bootcamp
+					</a>
 				</p>
 			</footer>
 		</>
