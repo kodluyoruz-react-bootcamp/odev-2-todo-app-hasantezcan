@@ -35,7 +35,7 @@ function App() {
 					Created by <a href="https://hasantezcan.dev/">Hasan Tezcan</a>
 				</p>
 				<p>
-					Part of
+					Part of 
 					<a href="https://github.com/hasantezcan/kodluyoruz-react-bootcamp">
 						Kodluyoruz React Bootcamp
 					</a>
